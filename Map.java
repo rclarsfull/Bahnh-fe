@@ -1,8 +1,9 @@
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
-public class Map {
+public class Map  {
 
     private int maxX;
     private int maxY;
@@ -17,7 +18,8 @@ public class Map {
         alleBahnhoefe=new ArrayList<Bahnhof>();
     }
 
-    public boolean addBahnhof(@NotNull Bahnhof a){
+    public boolean addNewBahnhof(int posX, int posY, String name){
+        Bahnhof a=new Bahnhof(posX,posY,name);
         if ((a.getPosY()<maxX)&&(a.getPosY()<maxY)&&(a.getPosY()>=0)&&(a.getPosX()>=0)){//test Feldgröße
             boolean frei=true;
             for (Integer[] b:allCordinatesBahnhoefe) {
@@ -57,5 +59,27 @@ public class Map {
 
     public ArrayList<Integer[]> getAllCordinatesBahnhoefe() {
         return allCordinatesBahnhoefe;
+    }
+
+    public void verbindeBahnhoefe(String nameBahnhof1,String nameBahnhof2){
+        Bahnhof bahnhof1=null;
+        Bahnhof bahnhof2=null;
+        for (int i = 0; i <alleBahnhoefe.size() ; i++) {
+            if (alleBahnhoefe.get(i).getName().equalsIgnoreCase(nameBahnhof1)){
+                bahnhof1=alleBahnhoefe.get(i);
+            }
+            if (alleBahnhoefe.get(i).getName().equalsIgnoreCase(nameBahnhof2)){
+                bahnhof2=alleBahnhoefe.get(i);
+            }
+        }
+        for (int i = 0; i <alleBahnhoefe.size() ; i++) {
+            if (alleBahnhoefe.get(i).getName().equalsIgnoreCase(nameBahnhof1)){
+                alleBahnhoefe.get(i).helferVerbindung(bahnhof2);
+            }
+            if (alleBahnhoefe.get(i).getName().equalsIgnoreCase(nameBahnhof2)){
+                alleBahnhoefe.get(i).helferVerbindung(bahnhof1);
+            }
+        }
+
     }
 }

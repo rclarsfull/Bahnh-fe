@@ -52,4 +52,8 @@ class Bahnhof {
     public int getPosY() {
         return posY;
     }
+
+    public String getName() {
+        return name;
+    }
 }
