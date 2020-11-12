@@ -4,11 +4,11 @@ import javax.swing.*;
 
 
 public class Paint extends JPanel {
-    ArrayList<Integer[]> cordinaten;
+    ArrayList<Bahnhof> alleBahnhoefe;
 
 
-    public Paint(ArrayList<Integer[]> cordinaten){
-        this.cordinaten=cordinaten;
+    public Paint(ArrayList<Bahnhof> alleBahnhoefe){
+        this.alleBahnhoefe=alleBahnhoefe;
 
     }
 
@@ -20,9 +20,10 @@ public class Paint extends JPanel {
 
 
 
-        for (Integer[]cordinaten:cordinaten) {
+        for (Bahnhof b:alleBahnhoefe) {
 
-            g.fillOval(cordinaten[0], cordinaten[1], 10, 10);
+            g.fillOval(b.getPosX(), b.getPosY(), 10*b.getAnzahlVerbindungen(), 10*b.getAnzahlVerbindungen());
+            g.drawString(b.getName(),b.getPosX(),b.getPosY()+10+10*b.getAnzahlVerbindungen());
         }
 
     }

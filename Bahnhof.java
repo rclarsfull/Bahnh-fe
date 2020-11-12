@@ -56,4 +56,7 @@ class Bahnhof {
     public String getName() {
         return name;
     }
+    public int getAnzahlVerbindungen(){
+        return this.verbundenZu.size();
+    }
 }

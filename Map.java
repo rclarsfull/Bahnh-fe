@@ -1,4 +1,3 @@
-import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -81,5 +80,9 @@ public class Map  {
             }
         }
 
+    }
+
+    public ArrayList<Bahnhof> getAlleBahnhoefe() {
+        return alleBahnhoefe;
     }
 }
