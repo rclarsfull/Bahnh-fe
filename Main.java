@@ -23,12 +23,18 @@ class Main  {
     map.addNewBahnhof(40,220,"Erbach");
     map.addNewBahnhof(70,120,"Badkönig");
     map.addNewBahnhof(200,200,"Darmstadt");
+    map.addNewBahnhof(300,350,"Dieburg");
+    map.addNewBahnhof(350,40,"Frankfurt");
+
 
     map.verbindeBahnhoefe("Michelstadt","Erbach");
     map.verbindeBahnhoefe("Michelstadt","Badkönig");
     map.verbindeBahnhoefe("Badkönig","Darmstadt");
+    map.verbindeBahnhoefe("Dieburg","Darmstadt");
+    map.verbindeBahnhoefe("Frankfurt","Darmstadt");
 
-    System.out.println(map.getAlleBahnhoefe().get(1));
+    System.out.println(map.getAlleBahnhoefe().get(5));
+    System.out.println(map.getAbstand(map.getAlleBahnhoefe().get(5),map.getAlleBahnhoefe().get(4)));
 
     /*
     ArrayList<Integer[]> test= map.getAllCordinatesBahnhoefe();
@@ -41,10 +47,10 @@ class Main  {
     JFrame frame = new JFrame("Map");
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     //Canvas canvas = new Paint();
-    frame.setSize(400,400);
+    frame.setSize(maxX+100,maxY+100);
     //frame.pack();
     frame.setVisible(true);
-    Paint paint=new Paint(map.getAlleBahnhoefe());
+    Paint paint=new Paint(map.getAlleBahnhoefe(),maxX,maxY);
     frame.add(paint);
     //frame.repaint();
     frame.setVisible(true);

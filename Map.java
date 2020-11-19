@@ -85,4 +85,18 @@ public class Map  {
     public ArrayList<Bahnhof> getAlleBahnhoefe() {
         return alleBahnhoefe;
     }
+
+    public double getAbstand(Bahnhof bahnhof1,Bahnhof bahnhof2){
+        int bahnhof1PosX= bahnhof1.getPosX();
+        int bahnhof1PosY= bahnhof1.getPosY();
+
+        int bahnhof2PosX= bahnhof2.getPosX();
+        int bahnhof2PosY= bahnhof2.getPosY();
+
+        int abstandX=bahnhof1PosX-bahnhof2PosX;
+        int abstandY=bahnhof1PosY-bahnhof2PosY;
+
+        double abstand=Math.sqrt((abstandX*abstandX)+(abstandY*abstandY));
+        return  abstand;
+    }
 }
